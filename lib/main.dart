@@ -3,9 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:zippt/colors.dart';
 import 'package:zippt/pages/home_screen.dart';
+import 'package:zippt/pages/profile_page.dart';
 import 'checklist_screen.dart';
-
-import 'pages/archive_page.dart';
 import 'widgets/custom_bottom_navigation_bar.dart';
 
 void main() {
@@ -105,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
     const HomeScreen(),
     const ChecklistScreen(),
     const Center(child: Text('Add')),
-    const Center(child: Text('Profile')),
+    const ExampleWidget(),
   ];
 
   void _onItemTapped(int index) {
