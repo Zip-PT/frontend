@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zippt/colors.dart';
+import 'package:zippt/pages/home_screen.dart';
 import 'package:zippt/pages/profile_page.dart';
 import 'package:zippt/pages/add_page.dart';
 import 'checklist_screen.dart';
@@ -99,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
     const ChecklistScreen(),
-    const Center(child: Text('Add')),
+    OtherPage(),
     const ExampleWidget(),
   ];
 
