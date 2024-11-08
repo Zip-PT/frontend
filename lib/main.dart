@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zippt/colors.dart';
 import 'package:zippt/pages/home_screen.dart';
+import 'package:zippt/pages/profile_page.dart';
 import 'package:zippt/pages/add_page.dart';
 import 'checklist_screen.dart';
 import 'widgets/custom_bottom_navigation_bar.dart';
@@ -12,7 +13,8 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ChecklistProvider()), // ChecklistProvider 추가
+        ChangeNotifierProvider(
+            create: (_) => ChecklistProvider()), // ChecklistProvider 추가
       ],
       child: const MyApp(),
     ),
@@ -99,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
     const HomeScreen(),
     const ChecklistScreen(),
     OtherPage(),
-    const Center(child: Text('Profile')),
+    const ExampleWidget(),
   ];
 
   void _onItemTapped(int index) {
