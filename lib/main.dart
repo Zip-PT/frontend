@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:zippt/colors.dart';
-import 'package:zippt/home_screen.dart';
+import 'package:zippt/pages/home_screen.dart';
 import 'checklist_screen.dart';
 
 import 'pages/archive_page.dart';

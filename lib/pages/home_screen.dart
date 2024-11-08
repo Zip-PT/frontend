@@ -75,6 +75,9 @@ class _WeatherCardState extends State<WeatherCard> {
       }),
     );
 
+    // mounted 체크 추가
+    if (!mounted) return;
+
     if (response.statusCode == 200) {
       final data = json.decode(utf8.decode(response.bodyBytes));
 
