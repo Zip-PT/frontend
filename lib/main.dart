@@ -1,20 +1,20 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zippt/colors.dart';
-import 'package:zippt/pages/home_screen.dart';
-import 'package:zippt/pages/profile_page.dart';
+import 'package:zippt/utils/colors.dart';
+import 'package:zippt/pages/home_page.dart';
 import 'package:zippt/pages/add_page.dart';
-import 'checklist_screen.dart';
+import 'pages/checklist_page.dart';
 import 'widgets/custom_bottom_navigation_bar.dart';
-import 'checklist_provider.dart'; // ChecklistProvider 추가
+import 'providers/checklist_provider.dart'; // ChecklistProvider 추가
+import 'package:zippt/providers/property_provider.dart'; // PropertyProvider 추가
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-            create: (_) => ChecklistProvider()), // ChecklistProvider 추가
+        ChangeNotifierProvider(create: (_) => ChecklistProvider()),
+        ChangeNotifierProvider(create: (_) => PropertyProvider()),
       ],
       child: const MyApp(),
     ),
@@ -99,9 +99,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
+    const AddPropertyPage(),
     const ChecklistScreen(),
-    OtherPage(),
-    const ExampleWidget(),
   ];
 
   void _onItemTapped(int index) {
@@ -113,13 +112,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.main,
-        elevation: 0,
-        title: null,
-      ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _widgetOptions,
       ),
       bottomNavigationBar: CustomBottomNavigationBar(
         selectedIndex: _selectedIndex,

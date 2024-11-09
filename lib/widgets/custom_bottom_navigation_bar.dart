@@ -31,10 +31,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildNavItem(Icons.home, 'Home', 0),
-              _buildNavItem(Icons.done, 'Checklist', 1),
-              _buildNavItem(Icons.add, 'Add', 2),
-              _buildNavItem(Icons.person, 'Profile', 3),
+              _buildNavItem(Icons.home, '  Home  ', 0),
+              _buildNavItem(Icons.add, '   Add   ', 1),
+              _buildNavItem(Icons.done, 'Checklist', 2),
             ],
           ),
         ),
@@ -51,7 +50,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.blue.withOpacity(0.1) : Colors.transparent,
+          color: isSelected
+              ? const Color(0xFFFFCDD2).withOpacity(0.7)
+              : Colors.transparent,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -59,14 +60,14 @@ class CustomBottomNavigationBar extends StatelessWidget {
           children: [
             Icon(
               icon,
-              color: isSelected ? Colors.blue : Colors.grey,
+              color: isSelected ? Colors.black : Colors.grey,
               size: 24,
             ),
             const SizedBox(height: 4),
             Text(
               label,
               style: TextStyle(
-                color: isSelected ? Colors.blue : Colors.grey,
+                color: isSelected ? Colors.black : Colors.grey,
                 fontSize: 12,
                 fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
               ),

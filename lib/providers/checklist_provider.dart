@@ -10,6 +10,10 @@ class ChecklistProvider with ChangeNotifier {
       'title': '창문 방향',
       'tags': ['남', '동', '서', '북']
     },
+    {
+      'title': '층수',
+      'tags': ['1층', '2-3층', '4층 이상', '반지하']
+    },
   ];
 
   List<Map<String, dynamic>> get checklistItems => _checklistItems;
